@@ -26,22 +26,19 @@ jQuery(document).ready(function($){
 
 	navigationTrigger.on('click', function(event){
 		event.preventDefault();
-		console.log(0);
 		if( navigationTrigger.hasClass('project-open') ) {
+			console.log(1);
 			//close visible project
 			navigationTrigger.add(projectsContainer).removeClass('project-open');
 			closeProject();
-			console.log(1);
 		} else if( navigationTrigger.hasClass('nav-visible') ) {
+			console.log(2);
 			//close main navigation
 			navigationTrigger.removeClass('nav-visible');
 			navigation.removeClass('nav-clickable nav-visible');
 			if(transitionsNotSupported) projectPreviews.removeClass('slide-out');
 			else slideToggleProjects(projectsPreviewWrapper.children('li'), -1, 0, false);
-			console.log(2);
 		} 
-
-		if(transitionsNotSupported) animating = false;
 	});
 
 	//scroll down to project info
@@ -66,6 +63,7 @@ jQuery(document).ready(function($){
 	}
 
 	function openProject(projectPreview) {
+		$('.what-we-do').fadeOut();
 		var projectIndex = projectPreview.index();
 		projects.children('li').eq(projectIndex).add(projectPreview).addClass('selected');
 		
