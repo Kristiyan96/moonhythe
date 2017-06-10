@@ -26,27 +26,20 @@ jQuery(document).ready(function($){
 
 	navigationTrigger.on('click', function(event){
 		event.preventDefault();
-		
-		if( animating == false ) {
-			animating = true;
-			if( navigationTrigger.hasClass('project-open') ) {
-				//close visible project
-				navigationTrigger.add(projectsContainer).removeClass('project-open');
-				closeProject();
-			} else if( navigationTrigger.hasClass('nav-visible') ) {
-				//close main navigation
-				navigationTrigger.removeClass('nav-visible');
-				navigation.removeClass('nav-clickable nav-visible');
-				if(transitionsNotSupported) projectPreviews.removeClass('slide-out');
-				else slideToggleProjects(projectsPreviewWrapper.children('li'), -1, 0, false);
-			} else {
-				//open main navigation
-				navigationTrigger.addClass('nav-visible');
-				navigation.addClass('nav-visible');
-				if(transitionsNotSupported) projectPreviews.addClass('slide-out');
-				else slideToggleProjects(projectsPreviewWrapper.children('li'), -1, 0, true);
-			}
-		}	
+		console.log(0);
+		if( navigationTrigger.hasClass('project-open') ) {
+			//close visible project
+			navigationTrigger.add(projectsContainer).removeClass('project-open');
+			closeProject();
+			console.log(1);
+		} else if( navigationTrigger.hasClass('nav-visible') ) {
+			//close main navigation
+			navigationTrigger.removeClass('nav-visible');
+			navigation.removeClass('nav-clickable nav-visible');
+			if(transitionsNotSupported) projectPreviews.removeClass('slide-out');
+			else slideToggleProjects(projectsPreviewWrapper.children('li'), -1, 0, false);
+			console.log(2);
+		} 
 
 		if(transitionsNotSupported) animating = false;
 	});
